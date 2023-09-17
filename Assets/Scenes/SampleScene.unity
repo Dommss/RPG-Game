@@ -184,7 +184,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -339,8 +339,8 @@ Transform:
   m_GameObject: {fileID: 1298224116}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1345, y: -3.67, z: 0}
-  m_LocalScale: {x: 15.023226, y: 1, z: 1}
+  m_LocalPosition: {x: 2.5142, y: -8.3026, z: 0}
+  m_LocalScale: {x: 35.613842, y: 1.9900903, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -502,7 +502,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 3.5
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: d79c2235f5b19b74d98897c477a348ae, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -525,8 +525,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 867e9d592030f464cbe769eea3914b1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 8
-  jumpForce: 20
+  moveSpeed: 7
+  jumpForce: 15
+  dashSpeed: 15
+  dashDuration: 0.4
+  dashTime: 0
   groundCheckDistance: 1.4
   whatIsGround:
     serializedVersion: 2
@@ -690,8 +693,8 @@ Transform:
   m_GameObject: {fileID: 1725022581}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.25, y: -0.54, z: 0}
-  m_LocalScale: {x: 4.2771125, y: 5.2855, z: 1}
+  m_LocalPosition: {x: 16.8287, y: -2.6138, z: 0}
+  m_LocalScale: {x: 7.022939, y: 9.432897, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
