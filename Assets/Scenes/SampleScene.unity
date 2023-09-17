@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 1298224119}
   - component: {fileID: 1298224118}
   - component: {fileID: 1298224117}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -527,6 +527,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 4
   jumpForce: 7
+  groundCheckDistance: 1.4
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!70 &1647655960
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -573,7 +577,7 @@ GameObject:
   - component: {fileID: 1725022584}
   - component: {fileID: 1725022583}
   - component: {fileID: 1725022582}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Platform (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
