@@ -6,14 +6,18 @@ public class Player : MonoBehaviour
 {
 
     private Rigidbody2D rb;
+    private Animator anim;
 
     [SerializeField] private float moveSpeed;
     [SerializeField] private float jumpForce;
+    [SerializeField] private bool isMoving;
+
     private float xInput;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponentInChildren<Animator>();
     }
 
     private void Update()
@@ -27,5 +31,9 @@ public class Player : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
+
+        isMoving = rb.velocity.x != 0;
+
+        anim.SetBool("isMoving", isMoving);
     }
 }
