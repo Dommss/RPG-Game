@@ -12,6 +12,9 @@ public class Player : MonoBehaviour {
 
     private float xInput;
 
+    private int facingDir = 1;
+    private bool facingRight = true;
+
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
@@ -22,6 +25,7 @@ public class Player : MonoBehaviour {
         Movement();
         CheckInput();
 
+        FlipController();
         AnimatorControllers();
     }
 
@@ -46,5 +50,19 @@ public class Player : MonoBehaviour {
         bool isMoving = rb.velocity.x != 0;
 
         anim.SetBool("isMoving", isMoving);
+    }
+
+    private void Flip() {
+        facingDir = facingDir * -1;
+        facingRight = !facingRight;
+        transform.Rotate(0, 180, 0);
+    }
+
+    private void FlipController() {
+        if (rb.velocity.x > 0 && !facingRight) {
+            Flip();
+        } else if (rb.velocity.x < 00 && facingRight) {
+            Flip();
+        }
     }
 }
