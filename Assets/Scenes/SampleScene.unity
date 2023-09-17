@@ -401,7 +401,7 @@ Transform:
   m_GameObject: {fileID: 1626409600}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.45, y: -1.19, z: 0}
+  m_LocalPosition: {x: 14.49, y: -0.39, z: 0}
   m_LocalScale: {x: 7.482774, y: 5.7586503, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -458,6 +458,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 8
   jumpForce: 12
+  dashSpeed: 25
+  dashDuration: 0.2
   groundCheck: {fileID: 603078281}
   groundCheckDistance: 0.15
   wallCheck: {fileID: 149623860}
@@ -651,8 +653,8 @@ Transform:
   m_GameObject: {fileID: 2045828858}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0303, y: -3.5476, z: 0}
-  m_LocalScale: {x: 16.68028, y: 1.0994617, z: 1}
+  m_LocalPosition: {x: 1.0904, y: -5.3278, z: 0}
+  m_LocalScale: {x: 28.561409, y: 4.659636, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
