@@ -38,4 +38,6 @@ public class EnemyState
     {
         stateTimer -= Time.deltaTime;
     }
+
+    public virtual void AnimationFinishTrigger() => triggerCalled = true;
 }
