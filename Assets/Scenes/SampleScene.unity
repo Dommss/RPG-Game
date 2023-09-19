@@ -204,7 +204,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 149623860}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WallCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -465,7 +465,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 489153736}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -625,7 +625,7 @@ GameObject:
   - component: {fileID: 550028896}
   - component: {fileID: 550028898}
   - component: {fileID: 550028897}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Animator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -729,7 +729,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 603078281}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -760,7 +760,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 667800169}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WallCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -776,7 +776,7 @@ Transform:
   m_GameObject: {fileID: 667800168}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.384, y: 0, z: 0}
+  m_LocalPosition: {x: 0.118, y: -0.164, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -881,23 +881,7 @@ CompositeCollider2D:
         Y: -10000000
       - X: 20000000
         Y: -10000000
-    - - X: 110000000
-        Y: 0
-      - X: 100000000
-        Y: 0
-      - X: 100000000
-        Y: -30000000
-      - X: 60000000
-        Y: -30000000
-      - X: 60000000
-        Y: -10000000
-      - X: 50000000
-        Y: -10000000
-      - X: 50000000
-        Y: -30000000
-      - X: 30000000
-        Y: -30000000
-      - X: 30000000
+    - - X: 20000000
         Y: -40000000
       - X: 50000000
         Y: -40000000
@@ -905,7 +889,11 @@ CompositeCollider2D:
         Y: -60000000
       - X: 110000000
         Y: -60000000
-    - - X: 20000000
+      - X: 110000000
+        Y: 0
+      - X: 100000000
+        Y: 0
+      - X: 100000000
         Y: -30000000
       - X: -110000000
         Y: -30000000
@@ -927,20 +915,14 @@ CompositeCollider2D:
       - {x: 1.9999708, y: 2}
       - {x: -4, y: 1.9999708}
       - {x: -3.999971, y: -1}
-    - - {x: 10.99997, y: -6}
+    - - {x: 1.9999708, y: -6}
+      - {x: 2.0000293, y: -4}
+      - {x: 5, y: -4.0000296}
+      - {x: 5.000029, y: -6}
+      - {x: 11, y: -5.999971}
       - {x: 10.99997, y: 0}
       - {x: 10, y: -0.000029300001}
       - {x: 9.99997, y: -3}
-      - {x: 6, y: -2.9999707}
-      - {x: 5.999971, y: -1}
-      - {x: 5, y: -1.0000293}
-      - {x: 4.9999704, y: -3}
-      - {x: 3, y: -3.0000293}
-      - {x: 3.0000293, y: -4}
-      - {x: 5, y: -4.0000296}
-      - {x: 5.000029, y: -6}
-    - - {x: 1.9999708, y: -6}
-      - {x: 1.9999708, y: -3}
       - {x: -11, y: -3.0000293}
       - {x: -10.99997, y: -6}
   m_VertexDistance: 0.0005
@@ -1578,6 +1560,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: 2, y: -4, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 2
+      m_TileSpriteIndex: 2
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: 3, y: -4, z: 0}
     second:
       serializedVersion: 2
@@ -1658,27 +1650,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 5, y: -3, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 2
-      m_TileSpriteIndex: 2
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: 10, y: -3, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 2
-      m_TileSpriteIndex: 2
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 5, y: -2, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 2
@@ -2254,7 +2226,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: ce6b168c34001a24f916bbb4f409ee74, type: 2}
   - m_RefCount: 13
     m_Data: {fileID: 11400000, guid: ccafe248357475447ba8b39519948310, type: 2}
-  - m_RefCount: 21
+  - m_RefCount: 20
     m_Data: {fileID: 11400000, guid: db3541ff207e08d468bb3720c8c3aa6e, type: 2}
   - m_RefCount: 5
     m_Data: {fileID: 11400000, guid: ff0df164e9c137d47bc8cbf437fedabe, type: 2}
@@ -2277,7 +2249,7 @@ Tilemap:
     m_Data: {fileID: 21300000, guid: 26075e6099ebb844aaf0a6405ebb02f6, type: 3}
   - m_RefCount: 13
     m_Data: {fileID: 21300000, guid: afdae31bc81d124438bb1f81eae6040c, type: 3}
-  - m_RefCount: 21
+  - m_RefCount: 20
     m_Data: {fileID: 21300000, guid: 4be2c34154b4b20429143bf5a0400d64, type: 3}
   - m_RefCount: 5
     m_Data: {fileID: 21300000, guid: 7f1c70acd3a44df4594d7d5a99659736, type: 3}
@@ -2296,7 +2268,7 @@ Tilemap:
   - m_RefCount: 5
     m_Data: {fileID: 21300000, guid: a3036aee198b81844b0cd72f1d750767, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 118
+  - m_RefCount: 117
     m_Data:
       e00: 1
       e01: 0
@@ -2315,7 +2287,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 118
+  - m_RefCount: 117
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -2946,7 +2918,7 @@ GameObject:
   - component: {fileID: 1831102172}
   - component: {fileID: 1831102171}
   - component: {fileID: 1831102170}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3073,7 +3045,7 @@ GameObject:
   - component: {fileID: 2073065127}
   - component: {fileID: 2073065126}
   - component: {fileID: 2073065128}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Animator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3192,7 +3164,7 @@ GameObject:
   - component: {fileID: 2121811760}
   - component: {fileID: 2121811762}
   - component: {fileID: 2121811761}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy_Skeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3208,8 +3180,8 @@ Transform:
   m_GameObject: {fileID: 2121811758}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.86, y: -1.89, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 6.91, y: -1.46, z: 0}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 550028896}
@@ -3236,8 +3208,12 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 64
   moveSpeed: 1.5
   idleTime: 2
+  attackDistance: 1.5
 --- !u!61 &2121811761
 BoxCollider2D:
   m_ObjectHideFlags: 0
