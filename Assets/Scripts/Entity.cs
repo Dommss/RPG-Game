@@ -15,6 +15,7 @@ public class Entity : MonoBehaviour
 
     [Header("Knockback")]
     [SerializeField] protected Vector2 knockbackDir;
+    [SerializeField] protected float knockbackDuration;
     protected bool isKnocked;
 
     [Header("Collision")]
@@ -56,9 +57,10 @@ public class Entity : MonoBehaviour
     protected virtual IEnumerator HitKnockback()
     {
         isKnocked = true;
-        rb.velocity = new Vector2(knockbackDir.x + -facingDir, knockbackDir.y);
-        yield return new WaitForSeconds(0.07f);
+        rb.velocity = new Vector2(knockbackDir.x * -facingDir, knockbackDir.y);
+        yield return new WaitForSeconds(knockbackDuration);
         isKnocked = false;
+        SetZeroVelocity();
     }
 
     #region Velocity
