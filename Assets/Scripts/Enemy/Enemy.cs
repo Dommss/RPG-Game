@@ -15,6 +15,10 @@ public class Enemy : Entity
     public float attackCooldown;
     [HideInInspector] public float lastTimeAttacked;
 
+    [Header("Stun")]
+    public float stunDuration;
+    public Vector2 stunDir;
+
     public EnemyStateMachine stateMachine { get; private set; }
 
     protected override void Awake()

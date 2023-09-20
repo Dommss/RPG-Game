@@ -3315,6 +3315,8 @@ MonoBehaviour:
   attackDistance: 1.5
   attackCooldown: 1
   lastTimeAttacked: 0
+  stunDuration: 1
+  stunDir: {x: 10, y: 12}
 --- !u!61 &2121811761
 BoxCollider2D:
   m_ObjectHideFlags: 0
