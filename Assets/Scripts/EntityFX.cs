@@ -17,7 +17,7 @@ public class EntityFX : MonoBehaviour
         originalMaterial = sr.material;
     }
 
-    IEnumerator FlashFX()
+    public IEnumerator FlashFX()
     {
         sr.material = hitMaterial;
 

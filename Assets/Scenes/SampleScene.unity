@@ -3001,6 +3001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 867e9d592030f464cbe769eea3914b1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knockbackDir: {x: 3, y: 0}
   attackCheck: {fileID: 1952529662}
   attackCheckRadius: 0.8
   groundCheck: {fileID: 603078281}
@@ -3295,6 +3296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50159458c731a8547a245c32226340ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knockbackDir: {x: 10, y: 0}
   attackCheck: {fileID: 326945606}
   attackCheckRadius: 0.8
   groundCheck: {fileID: 489153736}
@@ -3373,7 +3375,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 4
+  m_GravityScale: 12
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
