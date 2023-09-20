@@ -37,7 +37,7 @@ public class Enemy_Skeleton : Enemy
         base.Update();
     }
 
-    protected override bool CanBeStunned()
+    public override bool CanBeStunned()
     {
         if (base.CanBeStunned() == true)
         {
