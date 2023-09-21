@@ -32,7 +32,7 @@ public class Entity : MonoBehaviour
 
     protected virtual void Awake()
     {
-        
+
     }
 
     protected virtual void Start()
@@ -44,14 +44,13 @@ public class Entity : MonoBehaviour
 
     protected virtual void Update()
     {
-        
-    }                     
-                          
+
+    }
+
     public virtual void Damage()
     {
         fx.StartCoroutine(fx.FlashFX());
         StartCoroutine(HitKnockback());
-        Debug.Log(gameObject.name + " was damaged!");
     }
 
     protected virtual IEnumerator HitKnockback()
