@@ -3309,9 +3309,9 @@ MonoBehaviour:
   counterAttackDuration: 0.2
   moveSpeed: 8
   jumpForce: 12
+  swordReturnImpact: 7
   dashSpeed: 25
   dashDuration: 0.2
-  sword: {fileID: 0}
 --- !u!50 &1831102171
 Rigidbody2D:
   serializedVersion: 4
