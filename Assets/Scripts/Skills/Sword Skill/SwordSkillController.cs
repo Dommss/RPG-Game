@@ -14,10 +14,11 @@ public class SwordSkillController : MonoBehaviour
     private bool canRotate = true;
     private bool isReturning;
 
-    public float bounceSpeed;
-    public bool isBouncing = true;
-    public int amountOfBounces = 4;
-    public List<Transform> enemyTarget;
+    [Header("Bounce")]
+    [SerializeField] private float bounceSpeed;
+    private bool isBouncing;
+    private int amountOfBounces;
+    private List<Transform> enemyTarget;
     private int targetIndex;
 
     private void Awake()
@@ -38,6 +39,14 @@ public class SwordSkillController : MonoBehaviour
         anim.SetBool("Rotation", true);
     }
 
+    public void SetupBounce(bool _isBouncing, int _amountOfBounces)
+    {
+        isBouncing = _isBouncing;
+        amountOfBounces = _amountOfBounces;
+
+        enemyTarget = new List<Transform>();
+    }
+
     public void ReturnSword()
     {
         anim.SetBool("Rotation", true);
@@ -50,7 +59,7 @@ public class SwordSkillController : MonoBehaviour
     {
         if (canRotate)
         {
-           transform.right = rb.velocity;
+            transform.right = rb.velocity;
         }
 
         if (isReturning)
@@ -63,6 +72,11 @@ public class SwordSkillController : MonoBehaviour
             }
         }
 
+        BounceLogic();
+    }
+
+    private void BounceLogic()
+    {
         if (isBouncing && enemyTarget.Count > 0)
         {
             transform.position = Vector2.MoveTowards(transform.position, enemyTarget[targetIndex].position, bounceSpeed * Time.deltaTime);

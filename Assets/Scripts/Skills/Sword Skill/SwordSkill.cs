@@ -1,9 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+public enum SwordType
+{
+    Regular,
+    Bounce,
+    Pierce,
+    Spin
+}
 
 public class SwordSkill : Skill
 {
+    public SwordType swordType = SwordType.Regular;
+
+    [Header("Bounce Type")]
+    [SerializeField] private int amountOfBounces;
+    [SerializeField] private float bounceGravity;
+
     [Header("Skill Information")]
     [SerializeField] private GameObject swordPrefab;
     [SerializeField] private Vector2 launchForce;
@@ -29,7 +41,8 @@ public class SwordSkill : Skill
 
     protected override void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Mouse1)) {
+        if (Input.GetKeyUp(KeyCode.Mouse1))
+        {
             finalDir = new Vector2(AimDirection().normalized.x * launchForce.x, AimDirection().normalized.y * launchForce.y);
         }
 
@@ -47,6 +60,12 @@ public class SwordSkill : Skill
         GameObject newSword = Instantiate(swordPrefab, player.transform.position, transform.rotation);
         SwordSkillController newSwordScript = newSword.GetComponent<SwordSkillController>();
 
+        if (swordType == SwordType.Bounce)
+        {
+            swordGravity = bounceGravity;
+            newSwordScript.SetupBounce(true, amountOfBounces);
+        }
+
         newSwordScript.SetupSword(finalDir, swordGravity, player);
 
         player.AssignNewSword(newSword);
@@ -54,6 +73,7 @@ public class SwordSkill : Skill
         DotsActive(false);
     }
 
+    #region Aiming
     public Vector2 AimDirection()
     {
         Vector2 playerPos = player.transform.position;
@@ -83,8 +103,9 @@ public class SwordSkill : Skill
 
     private Vector2 DotsPosition(float t)
     {
-        Vector2 pos = (Vector2)player.transform.position + new Vector2(AimDirection().normalized.x * launchForce.x, AimDirection().normalized.y * launchForce.y) * t +.5f * (Physics2D.gravity * swordGravity) * (t * t);
+        Vector2 pos = (Vector2)player.transform.position + new Vector2(AimDirection().normalized.x * launchForce.x, AimDirection().normalized.y * launchForce.y) * t + .5f * (Physics2D.gravity * swordGravity) * (t * t);
 
         return pos;
     }
+    #endregion
 }
