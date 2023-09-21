@@ -32,7 +32,7 @@ public class Entity : MonoBehaviour
 
     protected virtual void Awake()
     {
-
+        
     }
 
     protected virtual void Start()
@@ -44,9 +44,9 @@ public class Entity : MonoBehaviour
 
     protected virtual void Update()
     {
-
-    }
-
+        
+    }                     
+                          
     public virtual void Damage()
     {
         fx.StartCoroutine(fx.FlashFX());
