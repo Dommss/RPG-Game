@@ -5023,6 +5023,7 @@ GameObject:
   - component: {fileID: 1333328806}
   - component: {fileID: 1333328807}
   - component: {fileID: 1333328808}
+  - component: {fileID: 1333328809}
   m_Layer: 0
   m_Name: SkillManager
   m_TagString: Untagged
@@ -5118,6 +5119,25 @@ MonoBehaviour:
   spaceBetweenDots: 0.07
   dotPrefab: {fileID: 8421784856591370728, guid: c5c643f6955527448a632da1fbe3ea18, type: 3}
   dotsParent: {fileID: 1740870063}
+--- !u!114 &1333328809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333328803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26cf6ee291a844d4e8c1eba4b8fdebd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 0
+  amountOfAttacks: 0
+  cloneCooldown: 0
+  blackholePrefab: {fileID: 0}
+  maxSize: 0
+  growSpeed: 0
+  shrinkSpeed: 0
 --- !u!1 &1351176980
 GameObject:
   m_ObjectHideFlags: 0
@@ -5535,11 +5555,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hotkeyPrefab: {fileID: 8558903394366696311, guid: d999247368ff32e4c9e46f79bd267bdf, type: 3}
   keyCodeList: 7100000077000000650000006600000063000000
-  maxSize: 10
-  growSpeed: 1
-  canGrow: 0
-  amountOfAttacks: 2
-  cloneAttackCooldown: 0.3
 --- !u!212 &1396545272
 SpriteRenderer:
   m_ObjectHideFlags: 0
