@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.Profiling;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -24,7 +25,7 @@ public class BlackholeSkill : Skill
     {
         base.UseSkill();
 
-        GameObject newBlackhole = Instantiate(blackholePrefab);
+        GameObject newBlackhole = Instantiate(blackholePrefab, player.transform.position, quaternion.identity);
 
         BlackholeSkillController newBlackholeScript = newBlackhole.GetComponent<BlackholeSkillController>();
         newBlackholeScript.SetupBlackhole(maxSize, growSpeed, shrinkSpeed, amountOfAttacks, cloneCooldown);
