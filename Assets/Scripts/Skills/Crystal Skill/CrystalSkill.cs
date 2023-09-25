@@ -9,6 +9,13 @@ public class CrystalSkill : Skill
     [SerializeField] private float crystalDuration;
     private GameObject currentCrystal;
 
+    [Header("Explosive Crystal")]
+    [SerializeField] private bool canExplode;
+
+    [Header("Moving Crystal")]
+    [SerializeField] private bool canMoveToEnemy;
+    [SerializeField] private float moveSpeed;
+
     public override bool CanUseSkill()
     {
         return base.CanUseSkill();
@@ -23,12 +30,16 @@ public class CrystalSkill : Skill
             currentCrystal = Instantiate(crystalPrefab, player.transform.position, Quaternion.identity);
             CrystalSkillController currentCrystalScript = currentCrystal.GetComponent<CrystalSkillController>();
 
-            currentCrystalScript.SetupCrystal(crystalDuration);
+            currentCrystalScript.SetupCrystal(crystalDuration, canExplode, canMoveToEnemy, moveSpeed);
         }
         else
         {
+            Vector2 playerPos = player.transform.position;
+
             player.transform.position = currentCrystal.transform.position;
-            Destroy(currentCrystal);
+
+            currentCrystal.transform.position = playerPos;
+            currentCrystal.GetComponent<CrystalSkillController>()?.CrystalExplosion();
         }
     }
 
