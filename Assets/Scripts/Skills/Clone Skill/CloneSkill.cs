@@ -14,11 +14,24 @@ public class CloneSkill : Skill
     [SerializeField] private bool canCreateCloneOnArrival;
     [SerializeField] private bool canCreateCloneOnCounterAttack;
 
+    [Header("Duplication")]
+    [SerializeField] private bool canDuplicateClone;
+    [SerializeField] private float chanceToDuplicate;
+
+    [Header("Crystal X Clone")]
+    [SerializeField] private bool crystalXClone;
+
     public void CreateClone(Transform _clonePosition, Vector3 _offset)
     {
+        if (crystalXClone)
+        {
+            SkillManager.instance.crystal.CreateCrystal();
+            return;
+        }
+
         GameObject newClone = Instantiate(clonePrefab);
 
-        newClone.GetComponent<CloneSkillController>().SetupClone(_clonePosition, cloneDuration, canAttack, _offset, FindClosestEnemy(newClone.transform));
+        newClone.GetComponent<CloneSkillController>().SetupClone(_clonePosition, cloneDuration, canAttack, _offset, FindClosestEnemy(newClone.transform), canDuplicateClone, chanceToDuplicate);
     }
 
     public void CreateCloneOnDashStart()
@@ -41,7 +54,7 @@ public class CloneSkill : Skill
     {
         if (canCreateCloneOnCounterAttack)
         {
-            StartCoroutine(CreateCloneWithDelay(_enemyTransform, new Vector3(2 * player.facingDir, 0)));
+            StartCoroutine(CreateCloneWithDelay(_enemyTransform, new Vector3(1.5f * player.facingDir, 0)));
         }
     }
 

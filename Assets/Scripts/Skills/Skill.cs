@@ -56,9 +56,7 @@ public class Skill : MonoBehaviour
                     closestEnemy = hit.transform;
                 }
             }
-
         }
-
         return closestEnemy;
     }
 }
