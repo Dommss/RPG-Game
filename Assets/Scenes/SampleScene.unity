@@ -3260,7 +3260,8 @@ MonoBehaviour:
   canCreateCloneOnArrival: 1
   canCreateCloneOnCounterAttack: 1
   canDuplicateClone: 1
-  chanceToDuplicate: 0
+  chanceToDuplicate: 35
+  crystalXClone: 1
 --- !u!114 &1333328808
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -33,16 +33,6 @@ public class BlackholeSkill : Skill
         currentBlackhole.SetupBlackhole(maxSize, growSpeed, shrinkSpeed, amountOfAttacks, cloneCooldown, blackholeDuration);
     }
 
-    protected override void Start()
-    {
-        base.Start();
-    }
-
-    protected override void Update()
-    {
-        base.Update();
-    }
-
     public bool BlackholeFinished()
     {
         if (!currentBlackhole) return false;
@@ -53,5 +43,10 @@ public class BlackholeSkill : Skill
             return true;
         }
         return false;
+    }
+
+    public float GetBlackholeRadius()
+    {
+        return maxSize / 2;
     }
 }

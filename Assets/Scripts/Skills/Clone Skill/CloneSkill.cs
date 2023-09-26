@@ -19,7 +19,7 @@ public class CloneSkill : Skill
     [SerializeField] private float chanceToDuplicate;
 
     [Header("Crystal X Clone")]
-    [SerializeField] private bool crystalXClone;
+    public bool crystalXClone;
 
     public void CreateClone(Transform _clonePosition, Vector3 _offset)
     {
