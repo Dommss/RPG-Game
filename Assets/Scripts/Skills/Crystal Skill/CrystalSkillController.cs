@@ -16,12 +16,15 @@ public class CrystalSkillController : MonoBehaviour
     private bool canGrow;
     private float growSpeed = 5f;
 
-    public void SetupCrystal(float _crystalDuration, bool _canExplode, bool _canMove, float _moveSpeed)
+    private Transform closestEnemy;
+
+    public void SetupCrystal(float _crystalDuration, bool _canExplode, bool _canMove, float _moveSpeed, Transform _closestEnemy)
     {
         crystalTimer = _crystalDuration;
         canExplode = _canExplode;
         canMove = _canMove;
         moveSpeed = _moveSpeed;
+        closestEnemy = _closestEnemy;
     }
 
     private void Update()
@@ -31,6 +34,17 @@ public class CrystalSkillController : MonoBehaviour
         if (crystalTimer < 0)
         {
             CrystalExplosion();
+        }
+
+        if (canMove)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, closestEnemy.position, moveSpeed * Time.deltaTime);
+
+            if (Vector2.Distance(transform.position, closestEnemy.position) < 1)
+            {
+                CrystalExplosion();
+                canMove = false;
+            }
         }
 
         if (canGrow)
