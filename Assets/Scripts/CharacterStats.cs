@@ -16,11 +16,14 @@ public class CharacterStats : MonoBehaviour
 
     [Header("Offensive Stats")]
     public Stat damage;
+    public Stat critChance;
+    public Stat critDamage; // default value is 150%
 
     [SerializeField] private int currentHealth;
 
     protected virtual void Start()
     {
+        critDamage.SetDefaultValue(150);
         currentHealth = maxHealth.GetValue();
     }
 
@@ -29,6 +32,11 @@ public class CharacterStats : MonoBehaviour
         if (TargetCanAvoidAttack(_targetStats)) return;
 
         int totalDamage = damage.GetValue() + strength.GetValue();
+
+        if (CanCrit())
+        {
+            totalDamage = CalculateCritDamage(totalDamage);
+        }
 
         totalDamage = CheckTargetArmor(_targetStats, totalDamage);
         _targetStats.TakeDamage(totalDamage);
@@ -65,5 +73,25 @@ public class CharacterStats : MonoBehaviour
     protected virtual void Die()
     {
         // throw new NotImplementedException();
+    }
+
+    private bool CanCrit()
+    {
+        int totalCritChance = critChance.GetValue() + agility.GetValue();
+
+        if (Random.Range(0, 100) < totalCritChance)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    private int CalculateCritDamage(int _damage)
+    {
+        float critDamageCalc = (critDamage.GetValue() + strength.GetValue()) * .01f;
+        float totalCritDamage = _damage * critDamageCalc;
+
+        return Mathf.RoundToInt(totalCritDamage);
     }
 }
