@@ -40,6 +40,11 @@ public class PlayerGroundedState : PlayerState
             stateMachine.ChangeState(player.counterAttackState);
         }
 
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            stateMachine.ChangeState(player.gotHitState);
+        }
+
         if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKey(KeyCode.Mouse0))
         {
             stateMachine.ChangeState(player.primaryAttackState);

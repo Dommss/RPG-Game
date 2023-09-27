@@ -18,8 +18,6 @@ public class CharacterStats : MonoBehaviour
 
     public virtual void DoDamage(CharacterStats _targetStats)
     {
-
-
         int totalDamage = damage.GetValue() + strength.GetValue();
         _targetStats.TakeDamage(totalDamage);
     }
