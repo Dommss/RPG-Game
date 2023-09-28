@@ -232,6 +232,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitMaterial: {fileID: 2100000, guid: 411ad835258cca142b84b439e83eb067, type: 2}
+  chillColor:
+  - {r: 0.21226418, g: 0.7969753, b: 1, a: 1}
+  - {r: 0.5613208, g: 0.9177104, b: 1, a: 1}
+  igniteColor:
+  - {r: 0.9843137, g: 0.29411766, b: 0.29411766, a: 1}
+  - {r: 0.9529412, g: 0.7529412, b: 0.7529412, a: 1}
+  shockColor:
+  - {r: 0.9433962, g: 0.8769398, b: 0.23584905, a: 1}
+  - {r: 0.99726003, g: 1, b: 0.6273585, a: 1}
 --- !u!50 &24968383
 Rigidbody2D:
   serializedVersion: 4
@@ -4908,6 +4917,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitMaterial: {fileID: 2100000, guid: 411ad835258cca142b84b439e83eb067, type: 2}
+  chillColor:
+  - {r: 0.21226418, g: 0.7969753, b: 1, a: 1}
+  - {r: 0.5613208, g: 0.9177104, b: 1, a: 1}
+  igniteColor:
+  - {r: 0.9843137, g: 0.29411766, b: 0.29411766, a: 1}
+  - {r: 0.9529412, g: 0.7529412, b: 0.7529412, a: 1}
+  shockColor:
+  - {r: 0.9433962, g: 0.8769398, b: 0.23584905, a: 1}
+  - {r: 0.99726003, g: 1, b: 0.6273585, a: 1}
 --- !u!114 &1831102174
 MonoBehaviour:
   m_ObjectHideFlags: 0

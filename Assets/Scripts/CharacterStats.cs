@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
 {
+    private EntityFX fx;
+
 
     [Header("Major Stats")]
     public Stat strength;       // 1pt increase dmg by 1 and crit power by 1%
@@ -45,6 +47,8 @@ public class CharacterStats : MonoBehaviour
     {
         critDamage.SetDefaultValue(150);
         currentHealth = GetMaxHealthValue();
+
+        fx = GetComponent<EntityFX>();
     }
 
     protected virtual void Update()
@@ -62,8 +66,6 @@ public class CharacterStats : MonoBehaviour
 
         if (igniteDamageTimer < 0 && isIgnited)
         {
-            Debug.Log("Take burn damage " + igniteDamage);
-
             DecreaseHealthBy(igniteDamage);
 
             if (currentHealth < 0)
@@ -168,18 +170,24 @@ public class CharacterStats : MonoBehaviour
         {
             isIgnited = _ignited;
             igniteTimer = 2;
+
+            fx.IgniteFXFor(igniteTimer);
         }
 
         if (_chilled)
         {
             isChilled = _chilled;
             chillTimer = 2;
+
+            fx.ChillFXFor(chillTimer);
         }
 
         if (_shocked)
         {
             isShocked = _shocked;
             shockTimer = 2;
+
+            fx.ShockFXFor(shockTimer);
         }
     }
 
