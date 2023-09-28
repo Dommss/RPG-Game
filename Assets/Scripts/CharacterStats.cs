@@ -37,12 +37,14 @@ public class CharacterStats : MonoBehaviour
     private float igniteDamageTimer;
     private int igniteDamage;
 
-    [SerializeField] private int currentHealth;
+    public int currentHealth;
+
+    public System.Action onHealthChange;
 
     protected virtual void Start()
     {
         critDamage.SetDefaultValue(150);
-        currentHealth = maxHealth.GetValue();
+        currentHealth = GetMaxHealthValue();
     }
 
     protected virtual void Update()
@@ -61,13 +63,18 @@ public class CharacterStats : MonoBehaviour
         if (igniteDamageTimer < 0 && isIgnited)
         {
             Debug.Log("Take burn damage " + igniteDamage);
-            currentHealth -= igniteDamage;
-            igniteDamageTimer = igniteDamageCooldown;
+
+            DecreaseHealthBy(igniteDamage);
 
             if (currentHealth < 0)
             {
                 Die();
+                isIgnited = false;
+                isChilled = false;
+                isShocked = false;
             }
+
+            igniteDamageTimer = igniteDamageCooldown;
         }
 
         if (chillTimer < 0)
@@ -93,7 +100,7 @@ public class CharacterStats : MonoBehaviour
         }
 
         totalDamage = CheckTargetArmor(_targetStats, totalDamage);
-        // _targetStats.TakeDamage(totalDamage);
+        _targetStats.TakeDamage(totalDamage);
         DoMagicalDamage(_targetStats);
     }
 
@@ -211,11 +218,21 @@ public class CharacterStats : MonoBehaviour
 
     public virtual void TakeDamage(int _damage)
     {
-        currentHealth -= _damage;
+        DecreaseHealthBy(_damage);
 
         if (currentHealth < 0)
         {
             Die();
+        }
+    }
+
+    protected virtual void DecreaseHealthBy(int _damage)
+    {
+        currentHealth -= _damage;
+
+        if (onHealthChange != null)
+        {
+            onHealthChange();
         }
     }
 
@@ -243,4 +260,10 @@ public class CharacterStats : MonoBehaviour
 
         return Mathf.RoundToInt(totalCritDamage);
     }
+
+    public int GetMaxHealthValue()
+    {
+        return maxHealth.GetValue() + vitality.GetValue() * 5;
+    }
+
 }
