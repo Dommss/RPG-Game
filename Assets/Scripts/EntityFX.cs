@@ -42,6 +42,8 @@ public class EntityFX : MonoBehaviour {
         sr.color = Color.white;
     }
 
+    #region Fire Effects
+
     public void IgniteFXFor(float _seconds) {
         InvokeRepeating("IgniteColorFX", 0, 0.3f);
         Invoke("CancelColorChange", _seconds);
@@ -54,6 +56,10 @@ public class EntityFX : MonoBehaviour {
             sr.color = igniteColor[1];
         }
     }
+
+    #endregion Fire Effects
+
+    #region Chill Effects
 
     public void ChillFXFor(float _seconds) {
         InvokeRepeating("ChillColorFX", 0, 0.3f);
@@ -68,6 +74,10 @@ public class EntityFX : MonoBehaviour {
         }
     }
 
+    #endregion Chill Effects
+
+    #region Shock Effects
+
     public void ShockFXFor(float _seconds) {
         InvokeRepeating("ShockColorFX", 0, 0.3f);
         Invoke("CancelColorChange", _seconds);
@@ -80,4 +90,6 @@ public class EntityFX : MonoBehaviour {
             sr.color = shockColor[1];
         }
     }
+
+    #endregion Shock Effects
 }

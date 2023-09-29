@@ -233,7 +233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitMaterial: {fileID: 2100000, guid: 411ad835258cca142b84b439e83eb067, type: 2}
   chillColor:
-  - {r: 0.21226418, g: 0.7969753, b: 1, a: 1}
+  - {r: 0.56078434, g: 0.9176471, b: 1, a: 1}
   - {r: 0.5613208, g: 0.9177104, b: 1, a: 1}
   igniteColor:
   - {r: 0.9843137, g: 0.29411766, b: 0.29411766, a: 1}
@@ -4918,7 +4918,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitMaterial: {fileID: 2100000, guid: 411ad835258cca142b84b439e83eb067, type: 2}
   chillColor:
-  - {r: 0.21226418, g: 0.7969753, b: 1, a: 1}
+  - {r: 0.56078434, g: 0.9176471, b: 1, a: 1}
   - {r: 0.5613208, g: 0.9177104, b: 1, a: 1}
   igniteColor:
   - {r: 0.9843137, g: 0.29411766, b: 0.29411766, a: 1}
