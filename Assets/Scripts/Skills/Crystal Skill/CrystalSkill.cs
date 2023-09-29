@@ -4,8 +4,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Video;
 
-public class CrystalSkill : Skill
-{
+public class CrystalSkill : Skill {
     [SerializeField] private GameObject crystalPrefab;
     [SerializeField] private float crystalDuration;
     private GameObject currentCrystal;
@@ -27,59 +26,46 @@ public class CrystalSkill : Skill
     [SerializeField] private float useTimeWindow;
     [SerializeField] private List<GameObject> crystalsLeft = new List<GameObject>();
 
-    public override bool CanUseSkill()
-    {
+    public override bool CanUseSkill() {
         return base.CanUseSkill();
     }
 
-    public override void UseSkill()
-    {
+    public override void UseSkill() {
         base.UseSkill();
 
         if (canUseMultiCrystal()) return;
 
-        if (currentCrystal == null)
-        {
+        if (currentCrystal == null) {
             CreateCrystal();
-        }
-        else
-        {
+        } else {
             if (canMoveToEnemy) return;
 
             Vector2 playerPos = player.transform.position;
             player.transform.position = currentCrystal.transform.position;
             currentCrystal.transform.position = playerPos;
 
-            if (cloneInsteadOfCrystal)
-            {
+            if (cloneInsteadOfCrystal) {
                 SkillManager.instance.clone.CreateClone(currentCrystal.transform, Vector3.zero);
                 Destroy(currentCrystal);
-            }
-            else
-            {
+            } else {
                 currentCrystal.GetComponent<CrystalSkillController>()?.CrystalExplosion();
             }
         }
     }
 
-    public void CreateCrystal()
-    {
+    public void CreateCrystal() {
         currentCrystal = Instantiate(crystalPrefab, player.transform.position, Quaternion.identity);
         CrystalSkillController currentCrystalScript = currentCrystal.GetComponent<CrystalSkillController>();
 
-        currentCrystalScript.SetupCrystal(crystalDuration, canExplode, canMoveToEnemy, moveSpeed, FindClosestEnemy(currentCrystal.transform));
+        currentCrystalScript.SetupCrystal(crystalDuration, canExplode, canMoveToEnemy, moveSpeed, FindClosestEnemy(currentCrystal.transform), player);
     }
 
     public void CurrentCrystalChooseRandomTarget() => currentCrystal.GetComponent<CrystalSkillController>().ChooseRandomEnemy();
 
-    private bool canUseMultiCrystal()
-    {
-        if (canUseMultiStacks)
-        {
-            if (crystalsLeft.Count > 0)
-            {
-                if (crystalsLeft.Count == amountOfStacks)
-                {
+    private bool canUseMultiCrystal() {
+        if (canUseMultiStacks) {
+            if (crystalsLeft.Count > 0) {
+                if (crystalsLeft.Count == amountOfStacks) {
                     Invoke("ResetAbility", useTimeWindow);
                 }
 
@@ -89,10 +75,9 @@ public class CrystalSkill : Skill
 
                 crystalsLeft.Remove(crystalToSpawn);
 
-                newCrystal.GetComponent<CrystalSkillController>().SetupCrystal(crystalDuration, canExplode, canMoveToEnemy, moveSpeed, FindClosestEnemy(newCrystal.transform));
+                newCrystal.GetComponent<CrystalSkillController>().SetupCrystal(crystalDuration, canExplode, canMoveToEnemy, moveSpeed, FindClosestEnemy(newCrystal.transform), player);
 
-                if (crystalsLeft.Count <= 0)
-                {
+                if (crystalsLeft.Count <= 0) {
                     cooldown = multiStackCooldown;
                     RefillCrystal();
                 }
@@ -103,18 +88,15 @@ public class CrystalSkill : Skill
         return false;
     }
 
-    private void RefillCrystal()
-    {
+    private void RefillCrystal() {
         int amountToAdd = amountOfStacks - crystalsLeft.Count;
 
-        for (int i = 0; i < amountToAdd; i++)
-        {
+        for (int i = 0; i < amountToAdd; i++) {
             crystalsLeft.Add(crystalPrefab);
         }
     }
 
-    private void ResetAbility()
-    {
+    private void ResetAbility() {
         if (cooldownTimer > 0) return;
 
         cooldownTimer = multiStackCooldown;
