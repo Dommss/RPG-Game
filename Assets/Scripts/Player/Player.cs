@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Player : Entity
-{
-
+public class Player : Entity {
     [Header("Attack")]
     public Vector2[] attackMovement;
     public float counterAttackDuration = .2f;
@@ -15,16 +13,20 @@ public class Player : Entity
     public float moveSpeed = 8f;
     public float jumpForce;
     public float swordReturnImpact;
+    private float defaultMoveSpeed;
+    private float defaultJumpForce;
 
     [Header("Dash")]
     public float dashSpeed;
     public float dashDuration;
     public float dashDir { get; private set; }
+    private float defaultDashSpeed;
 
     public SkillManager skillManager { get; private set; }
     public GameObject sword { get; private set; }
 
     #region States
+
     public PlayerStateMachine stateMachine { get; private set; }
 
     public PlayerIdleState idleState { get; private set; }
@@ -45,10 +47,9 @@ public class Player : Entity
 
     public PlayerBlackholeState blackholeState { get; private set; }
 
-    #endregion
+    #endregion States
 
-    protected override void Awake()
-    {
+    protected override void Awake() {
         base.Awake();
         stateMachine = new PlayerStateMachine();
 
@@ -70,40 +71,55 @@ public class Player : Entity
         blackholeState = new PlayerBlackholeState(this, stateMachine, "Jump");
     }
 
-    protected override void Start()
-    {
+    protected override void Start() {
         base.Start();
 
         skillManager = SkillManager.instance;
 
         stateMachine.Initialize(idleState);
+
+        defaultMoveSpeed = moveSpeed;
+        defaultJumpForce = jumpForce;
+        defaultDashSpeed = dashSpeed;
     }
 
-    protected override void Update()
-    {
+    protected override void Update() {
         base.Update();
         stateMachine.currentState.Update();
         CheckForDashInput();
 
-        if (Input.GetKeyDown(KeyCode.C))
-        {
+        if (Input.GetKeyDown(KeyCode.C)) {
             skillManager.crystal.CanUseSkill();
         }
     }
 
-    public void AssignNewSword(GameObject _newSword)
-    {
+    public override void SlowEntityBy(float _slowPercentage, float _slowDuration) {
+        moveSpeed = moveSpeed * (1 - _slowPercentage);
+        jumpForce = jumpForce * (1 - _slowPercentage);
+        dashSpeed = dashSpeed * (1 - _slowPercentage);
+        anim.speed = anim.speed * (1 - _slowPercentage);
+
+        Invoke("ReturnDefaultSpeed", _slowDuration);
+    }
+
+    protected override void ReturnDefaultSpeed() {
+        base.ReturnDefaultSpeed();
+
+        moveSpeed = defaultMoveSpeed;
+        jumpForce = defaultJumpForce;
+        dashSpeed = defaultDashSpeed;
+    }
+
+    public void AssignNewSword(GameObject _newSword) {
         sword = _newSword;
     }
 
-    public void CatchSword()
-    {
+    public void CatchSword() {
         stateMachine.ChangeState(catchSwordState);
         Destroy(sword);
     }
 
-    public IEnumerator BusyFor(float _seconds)
-    {
+    public IEnumerator BusyFor(float _seconds) {
         isBusy = true;
 
         yield return new WaitForSeconds(_seconds);
@@ -113,19 +129,15 @@ public class Player : Entity
 
     public void AnimationTrigger() => stateMachine.currentState.AnimationFinishTrigger();
 
-    public void CheckForDashInput()
-    {
-        if (isWallDetected())
-        {
+    public void CheckForDashInput() {
+        if (isWallDetected()) {
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && SkillManager.instance.dash.CanUseSkill())
-        {
+        if (Input.GetKeyDown(KeyCode.LeftShift) && SkillManager.instance.dash.CanUseSkill()) {
             dashDir = Input.GetAxisRaw("Horizontal");
 
-            if (dashDir == 0)
-            {
+            if (dashDir == 0) {
                 dashDir = facingDir;
             }
 
@@ -133,8 +145,7 @@ public class Player : Entity
         }
     }
 
-    public override void Die()
-    {
+    public override void Die() {
         base.Die();
 
         stateMachine.ChangeState(deathState);
