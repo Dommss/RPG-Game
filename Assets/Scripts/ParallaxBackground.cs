@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ParallaxBackground : MonoBehaviour {
-
     private GameObject cam;
 
     [SerializeField] private float parallaxEffect;

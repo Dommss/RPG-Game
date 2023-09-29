@@ -3,17 +3,14 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class SkeletonDeathState : EnemyState
-{
+public class SkeletonDeathState : EnemyState {
     private Enemy_Skeleton enemy;
 
-    public SkeletonDeathState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, Enemy_Skeleton _enemy) : base(_enemyBase, _stateMachine, _animBoolName)
-    {
+    public SkeletonDeathState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, Enemy_Skeleton _enemy) : base(_enemyBase, _stateMachine, _animBoolName) {
         enemy = _enemy;
     }
 
-    public override void Enter()
-    {
+    public override void Enter() {
         base.Enter();
         enemy.anim.SetBool(enemy.lastAnimBoolName, true);
         enemy.anim.speed = 0;
@@ -22,12 +19,10 @@ public class SkeletonDeathState : EnemyState
         stateTimer = .1f;
     }
 
-    public override void Update()
-    {
+    public override void Update() {
         base.Update();
 
-        if (stateTimer > 0)
-        {
+        if (stateTimer > 0) {
             rb.velocity = new Vector2(4, 10);
         }
     }

@@ -1,10 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class EntityFX : MonoBehaviour
-{
+public class EntityFX : MonoBehaviour {
     private SpriteRenderer sr;
 
     [Header("Flash FX")]
@@ -16,14 +13,12 @@ public class EntityFX : MonoBehaviour
     [SerializeField] private Color[] igniteColor;
     [SerializeField] private Color[] shockColor;
 
-    private void Start()
-    {
+    private void Start() {
         sr = GetComponentInChildren<SpriteRenderer>();
         originalMaterial = sr.material;
     }
 
-    public IEnumerator FlashFX()
-    {
+    public IEnumerator FlashFX() {
         sr.material = hitMaterial;
         Color currentColor = sr.color;
 
@@ -34,77 +29,55 @@ public class EntityFX : MonoBehaviour
         sr.material = originalMaterial;
     }
 
-    private void RedColorBlink()
-    {
-        if (sr.color != Color.white)
-        {
+    private void RedColorBlink() {
+        if (sr.color != Color.white) {
             sr.color = Color.white;
-        }
-        else
-        {
+        } else {
             sr.color = Color.red;
         }
     }
 
-    private void CancelColorChange()
-    {
+    private void CancelColorChange() {
         CancelInvoke();
         sr.color = Color.white;
     }
 
-    public void IgniteFXFor(float _seconds)
-    {
+    public void IgniteFXFor(float _seconds) {
         InvokeRepeating("IgniteColorFX", 0, 0.3f);
         Invoke("CancelColorChange", _seconds);
     }
 
-    private void IgniteColorFX()
-    {
-        if (sr.color != igniteColor[0])
-        {
+    private void IgniteColorFX() {
+        if (sr.color != igniteColor[0]) {
             sr.color = igniteColor[0];
-        }
-        else
-        {
+        } else {
             sr.color = igniteColor[1];
         }
     }
 
-    public void ChillFXFor(float _seconds)
-    {
+    public void ChillFXFor(float _seconds) {
         InvokeRepeating("ChillColorFX", 0, 0.3f);
         Invoke("CancelColorChange", _seconds);
     }
 
-    private void ChillColorFX()
-    {
-        if (sr.color != chillColor[0])
-        {
+    private void ChillColorFX() {
+        if (sr.color != chillColor[0]) {
             sr.color = chillColor[0];
-        }
-        else
-        {
+        } else {
             sr.color = chillColor[1];
         }
     }
 
-    public void ShockFXFor(float _seconds)
-    {
+    public void ShockFXFor(float _seconds) {
         InvokeRepeating("ShockColorFX", 0, 0.3f);
         Invoke("CancelColorChange", _seconds);
     }
 
-    private void ShockColorFX()
-    {
-        if (sr.color != shockColor[0])
-        {
+    private void ShockColorFX() {
+        if (sr.color != shockColor[0]) {
             sr.color = shockColor[0];
-        }
-        else
-        {
+        } else {
             sr.color = shockColor[1];
         }
     }
-
-
 }

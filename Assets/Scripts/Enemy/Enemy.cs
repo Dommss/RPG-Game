@@ -2,22 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : Entity
-{
+public class Enemy : Entity {
     [SerializeField] protected LayerMask whatIsPlayer;
+
     [Header("Movement")]
     public float moveSpeed;
+
     public float idleTime;
     public float battleTime;
     private float defaultMoveSpeed;
 
     [Header("Attack")]
     public float attackDistance;
+
     public float attackCooldown;
     [HideInInspector] public float lastTimeAttacked;
 
     [Header("Stun")]
     public float stunDuration;
+
     public Vector2 stunDir;
     protected bool canBeStunned;
     [SerializeField] protected GameObject counterImage;
@@ -25,40 +28,32 @@ public class Enemy : Entity
     public EnemyStateMachine stateMachine { get; private set; }
     public string lastAnimBoolName { get; private set; }
 
-    protected override void Awake()
-    {
+    protected override void Awake() {
         base.Awake();
         stateMachine = new EnemyStateMachine();
         defaultMoveSpeed = moveSpeed;
     }
 
-    protected override void Update()
-    {
+    protected override void Update() {
         base.Update();
         stateMachine.currentState.Update();
     }
 
-    public virtual void AssignLastAnimName(string _animBoolName)
-    {
+    public virtual void AssignLastAnimName(string _animBoolName) {
         lastAnimBoolName = _animBoolName;
     }
 
-    public virtual void FreezeTime(bool _timeFrozen)
-    {
-        if (_timeFrozen)
-        {
+    public virtual void FreezeTime(bool _timeFrozen) {
+        if (_timeFrozen) {
             moveSpeed = 0;
             anim.speed = 0;
-        }
-        else
-        {
+        } else {
             moveSpeed = defaultMoveSpeed;
             anim.speed = 1;
         }
     }
 
-    public virtual IEnumerator FreezeTimeFor(float _seconds)
-    {
+    public virtual IEnumerator FreezeTimeFor(float _seconds) {
         FreezeTime(true);
 
         yield return new WaitForSeconds(_seconds);
@@ -67,22 +62,19 @@ public class Enemy : Entity
     }
 
     #region Counter Attack
-    public virtual void OpenCounterAttackWindow()
-    {
+
+    public virtual void OpenCounterAttackWindow() {
         canBeStunned = true;
         counterImage.SetActive(true);
     }
 
-    public virtual void CloseCounterAttackWindow()
-    {
+    public virtual void CloseCounterAttackWindow() {
         canBeStunned = false;
         counterImage.SetActive(false);
     }
 
-    public virtual bool CanBeStunned()
-    {
-        if (canBeStunned == true)
-        {
+    public virtual bool CanBeStunned() {
+        if (canBeStunned == true) {
             CloseCounterAttackWindow();
             return true;
         }
@@ -90,14 +82,13 @@ public class Enemy : Entity
         return false;
     }
 
-    #endregion
+    #endregion Counter Attack
 
     public virtual void AnimationFinishTrigger() => stateMachine.currentState.AnimationFinishTrigger();
 
     public virtual RaycastHit2D IsPlayerDetected() => Physics2D.Raycast(wallCheck.position, Vector2.right * facingDir, 50, whatIsPlayer);
 
-    protected override void OnDrawGizmos()
-    {
+    protected override void OnDrawGizmos() {
         base.OnDrawGizmos();
 
         Gizmos.color = Color.yellow;

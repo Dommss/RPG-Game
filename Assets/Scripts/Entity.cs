@@ -1,12 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class Entity : MonoBehaviour
-{
+public class Entity : MonoBehaviour {
 
     #region Components
+
     public Animator anim { get; private set; }
     public Rigidbody2D rb { get; private set; }
     public EntityFX fx { get; private set; }
@@ -14,7 +12,7 @@ public class Entity : MonoBehaviour
     public CharacterStats stats { get; private set; }
     public CapsuleCollider2D cd { get; private set; }
 
-    #endregion
+    #endregion Components
 
     [Header("Knockback")]
     [SerializeField] protected Vector2 knockbackDir;
@@ -23,6 +21,7 @@ public class Entity : MonoBehaviour
 
     [Header("Collision")]
     public Transform attackCheck;
+
     public float attackCheckRadius;
     [SerializeField] protected Transform groundCheck;
     [SerializeField] protected float groundCheckDistance;
@@ -35,13 +34,10 @@ public class Entity : MonoBehaviour
 
     public System.Action onFlipped;
 
-    protected virtual void Awake()
-    {
-
+    protected virtual void Awake() {
     }
 
-    protected virtual void Start()
-    {
+    protected virtual void Start() {
         fx = GetComponent<EntityFX>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
@@ -50,19 +46,15 @@ public class Entity : MonoBehaviour
         cd = GetComponent<CapsuleCollider2D>();
     }
 
-    protected virtual void Update()
-    {
-
+    protected virtual void Update() {
     }
 
-    public virtual void DamageEffect()
-    {
+    public virtual void DamageEffect() {
         fx.StartCoroutine(fx.FlashFX());
         StartCoroutine(HitKnockback());
     }
 
-    protected virtual IEnumerator HitKnockback()
-    {
+    protected virtual IEnumerator HitKnockback() {
         isKnocked = true;
         rb.velocity = new Vector2(knockbackDir.x * -facingDir, knockbackDir.y);
         yield return new WaitForSeconds(knockbackDuration);
@@ -71,20 +63,17 @@ public class Entity : MonoBehaviour
     }
 
     #region Velocity
-    public virtual void SetZeroVelocity()
-    {
-        if (isKnocked == true)
-        {
+
+    public virtual void SetZeroVelocity() {
+        if (isKnocked == true) {
             return;
         }
 
         rb.velocity = new Vector2(0, 0);
     }
 
-    public virtual void SetVelocity(float _xVelocity, float _yVelocity)
-    {
-        if (isKnocked == true)
-        {
+    public virtual void SetVelocity(float _xVelocity, float _yVelocity) {
+        if (isKnocked == true) {
             return;
         }
 
@@ -92,60 +81,52 @@ public class Entity : MonoBehaviour
         FlipController(_xVelocity);
     }
 
-    #endregion
+    #endregion Velocity
+
     #region Collision
+
     public virtual bool IsGroundDetected() => Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsGround);
+
     public virtual bool isWallDetected() => Physics2D.Raycast(wallCheck.position, Vector2.right * facingDir, wallCheckDistance, whatIsGround);
 
-    protected virtual void OnDrawGizmos()
-    {
+    protected virtual void OnDrawGizmos() {
         Gizmos.DrawLine(groundCheck.position, new Vector3(groundCheck.position.x, groundCheck.position.y - groundCheckDistance));
         Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + wallCheckDistance, wallCheck.position.y));
         Gizmos.DrawWireSphere(attackCheck.position, attackCheckRadius);
     }
 
-    #endregion
+    #endregion Collision
+
     #region Flipping
-    public virtual void Flip()
-    {
+
+    public virtual void Flip() {
         facingDir = facingDir * -1;
         facingRight = !facingRight;
         transform.Rotate(0, 180, 0);
 
-        if (onFlipped != null)
-        {
+        if (onFlipped != null) {
             onFlipped();
         }
     }
 
-    public virtual void FlipController(float _x)
-    {
-        if (_x > 0 && !facingRight)
-        {
+    public virtual void FlipController(float _x) {
+        if (_x > 0 && !facingRight) {
             Flip();
-        }
-        else if (_x < 0 && facingRight)
-        {
+        } else if (_x < 0 && facingRight) {
             Flip();
         }
     }
 
-    #endregion
+    #endregion Flipping
 
-    public void MakeTransparent(bool _transparent)
-    {
-        if (_transparent)
-        {
+    public void MakeTransparent(bool _transparent) {
+        if (_transparent) {
             sr.color = Color.clear;
-        }
-        else
-        {
+        } else {
             sr.color = Color.white;
         }
     }
 
-    public virtual void Die()
-    {
-
+    public virtual void Die() {
     }
 }
