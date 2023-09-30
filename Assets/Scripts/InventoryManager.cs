@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryManager : MonoBehaviour
-{
+public class InventoryManager : MonoBehaviour {
     public static InventoryManager Instance;
 
     public List<InventoryItem> inventoryItems;
     public Dictionary<ItemData, InventoryItem> inventoryDictionary;
+
+    [Header("Inventory UI")]
+    [SerializeField] private Transform inventorySlotParent;
+    private UIItemSlot[] itemSlot;
 
     private void Awake() {
         if (Instance == null) Instance = this;
@@ -17,6 +20,13 @@ public class InventoryManager : MonoBehaviour
     private void Start() {
         inventoryItems = new List<InventoryItem>();
         inventoryDictionary = new Dictionary<ItemData, InventoryItem>();
+        itemSlot = inventorySlotParent.GetComponentsInChildren<UIItemSlot>();
+    }
+
+    private void UpdateSlotUI() {
+        for (int i = 0; i < inventoryItems.Count; i++) {
+            itemSlot[i].UpdateSlot(inventoryItems[i]);
+        }
     }
 
     public void AddItem(ItemData _item) {
@@ -27,6 +37,8 @@ public class InventoryManager : MonoBehaviour
             inventoryItems.Add(newItem);
             inventoryDictionary.Add(_item, newItem);
         }
+
+        UpdateSlotUI();
     }
 
     public void RemoveItem (ItemData _item) {
@@ -38,5 +50,7 @@ public class InventoryManager : MonoBehaviour
                 value.RemoveStack();
             }
         }
+
+        UpdateSlotUI();
     }
 }
