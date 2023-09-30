@@ -45,7 +45,7 @@ public class CrystalSkillController : MonoBehaviour {
             CrystalExplosion();
         }
 
-        if (canMove) {
+        if (canMove && closestEnemy != null) {
             transform.position = Vector2.MoveTowards(transform.position, closestEnemy.position, moveSpeed * Time.deltaTime);
 
             if (Vector2.Distance(transform.position, closestEnemy.position) < 1) {

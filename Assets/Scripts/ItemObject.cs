@@ -14,7 +14,7 @@ public class ItemObject : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.GetComponent<Player>() != null) {
-            Debug.Log("Picked up a " + itemData.itemName);
+            InventoryManager.Instance.AddItem(itemData);
             Destroy(gameObject);
         }
     }
