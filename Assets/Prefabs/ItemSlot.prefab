@@ -220,11 +220,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5917138599494940815}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd54ffd6a6b47ce44a9b17e7d635dd42, type: 3}
+  m_Script: {fileID: 11500000, guid: 6eda07d58e55de14b91845b40e11543f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemImage: {fileID: 9148068023555017073}
   itemText: {fileID: 3412509834107357095}
   item:
-    data: {fileID: 11400000, guid: b287a1647fd2f984d94ded9a405d3705, type: 2}
-    stackSize: 86
+    data: {fileID: 0}
+    stackSize: 0

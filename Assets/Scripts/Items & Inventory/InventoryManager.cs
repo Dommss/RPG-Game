@@ -10,7 +10,7 @@ public class InventoryManager : MonoBehaviour {
 
     [Header("Inventory UI")]
     [SerializeField] private Transform inventorySlotParent;
-    private UIItemSlot[] itemSlot;
+    private ItemSlotUI[] itemSlot;
 
     private void Awake() {
         if (Instance == null) Instance = this;
@@ -20,7 +20,7 @@ public class InventoryManager : MonoBehaviour {
     private void Start() {
         inventoryItems = new List<InventoryItem>();
         inventoryDictionary = new Dictionary<ItemData, InventoryItem>();
-        itemSlot = inventorySlotParent.GetComponentsInChildren<UIItemSlot>();
+        itemSlot = inventorySlotParent.GetComponentsInChildren<ItemSlotUI>();
     }
 
     private void UpdateSlotUI() {

@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIItemSlot : MonoBehaviour {
+public class ItemSlotUI : MonoBehaviour {
     [SerializeField] private Image itemImage;
     [SerializeField] private TextMeshProUGUI itemText;
 
