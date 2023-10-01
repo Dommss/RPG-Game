@@ -62,6 +62,8 @@ public class InventoryManager : MonoBehaviour {
 
         equipment.Add(newItem);
         equipmentDictionary.Add(newEquipment, newItem);
+        newEquipment.AddModifiers();
+
         RemoveItem(_item);
 
         UpdateSlotUI();
@@ -71,6 +73,7 @@ public class InventoryManager : MonoBehaviour {
         if (equipmentDictionary.TryGetValue(itemToRemove, out InventoryItem value)) {
             equipment.Remove(value);
             equipmentDictionary.Remove(itemToRemove);
+            itemToRemove.RemoveModifiers();
         }
     }
 

@@ -16,3 +16,17 @@ MonoBehaviour:
   itemName: Shortsword
   icon: {fileID: 1526008332, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
   equipmentType: 0
+  strength: 5
+  agility: 3
+  intelligence: 0
+  vitality: 0
+  maxHealth: 0
+  armor: 0
+  evasion: 0
+  magicResist: 0
+  damage: 15
+  critChance: 15
+  critDamage: 10
+  fireDamage: 0
+  iceDamage: 0
+  lightningDamage: 0
