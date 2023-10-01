@@ -15,6 +15,7 @@ MonoBehaviour:
   itemType: 1
   itemName: Shortsword
   icon: {fileID: 1526008332, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
+  dropChance: 20
   equipmentType: 0
   strength: 5
   agility: 3

@@ -250,7 +250,7 @@ public class CharacterStats : MonoBehaviour {
 
     #region Stat Calculations
 
-    private bool TargetCanAvoidAttack(CharacterStats _targetStats) {
+    public bool TargetCanAvoidAttack(CharacterStats _targetStats) {
         int totalEvasion = _targetStats.evasion.GetValue() + _targetStats.agility.GetValue();
 
         if (_targetStats.isShocked) {
