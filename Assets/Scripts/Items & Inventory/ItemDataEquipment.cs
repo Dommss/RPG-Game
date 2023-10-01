@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public enum EquipmentType {
@@ -32,6 +33,9 @@ public class ItemDataEquipment : ItemData {
     public int fireDamage;
     public int iceDamage;
     public int lightningDamage;
+
+    [Header("Craft Requirements")]
+    public List<InventoryItem> craftingMats;
 
     public void AddModifiers() {
         PlayerStats playerStats = PlayerManager.instance.player.GetComponent<PlayerStats>();

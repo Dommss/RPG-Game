@@ -154,4 +154,31 @@ public class InventoryManager : MonoBehaviour {
 
         UpdateSlotUI();
     }
+
+    public bool CanCraft(ItemDataEquipment _itemToCraft, List<InventoryItem> _craftingMats) {
+        List<InventoryItem> materialsToRemove = new List<InventoryItem>();
+
+        for (int i = 0; i < _craftingMats.Count; i++) {
+            if (stashDictionary.TryGetValue(_craftingMats[i].data, out InventoryItem stashValue)) {
+                if (stashValue.stackSize < _craftingMats[i].stackSize) {
+                    Debug.Log("Not enough materials!");
+                    return false;
+                } else {
+                    materialsToRemove.Add(stashValue);
+                }
+            } else {
+                Debug.Log("Not enough materials!");
+                return false;
+            }
+        }
+
+        for (int i = 0; i < materialsToRemove.Count; i++) {
+            RemoveItem(materialsToRemove[i].data);
+        }
+
+        AddItem(_itemToCraft);
+        Debug.Log("Here is your crafted item: " + _itemToCraft.name);
+
+        return true;
+    }
 }
