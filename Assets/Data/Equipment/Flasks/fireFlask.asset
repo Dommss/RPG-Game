@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e273a6dab378af44f8022dc885e4e388, type: 3}
+  m_Name: fireFlask
+  m_EditorClassIdentifier: 
+  itemType: 1
+  itemName: Fire Flask
+  icon: {fileID: -770765129, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
+  dropChance: 25.9
+  equipmentType: 3
+  itemCooldown: 15
+  itemEffects:
+  - {fileID: 11400000, guid: cca9d16363cfd6240889e7b2d57952b3, type: 2}
+  strength: 0
+  agility: 0
+  intelligence: 0
+  vitality: 0
+  maxHealth: 0
+  armor: 0
+  evasion: 0
+  magicResist: 0
+  damage: 0
+  critChance: 0
+  critDamage: 0
+  fireDamage: 0
+  iceDamage: 0
+  lightningDamage: 0
+  craftingMats: []

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class CharacterStats : MonoBehaviour {
@@ -71,6 +72,18 @@ public class CharacterStats : MonoBehaviour {
         if (shockTimer < 0) {
             isShocked = false;
         }
+    }
+
+    public virtual void IncreaseStatBy(int _modifier, float _duration, Stat _statToModify) {
+        StartCoroutine(StatModification(_modifier, _duration, _statToModify));
+    }
+
+    private IEnumerator StatModification(int _modifier, float _duration, Stat _statToModify) {
+        _statToModify.AddModifier(_modifier);
+
+        yield return new WaitForSeconds(_duration);
+
+        _statToModify.RemoveModifier(_modifier);
     }
 
     public virtual void DoDamage(CharacterStats _targetStats) {
