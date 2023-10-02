@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e273a6dab378af44f8022dc885e4e388, type: 3}
-  m_Name: thunderClaw
+  m_Name: frostFireSword
   m_EditorClassIdentifier: 
   itemType: 1
-  itemName: Thunder Claw
-  icon: {fileID: 1724600912, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
-  dropChance: 11.6
+  itemName: Frostfire Dual-Sword
+  icon: {fileID: 1398721256, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
+  dropChance: 6
   equipmentType: 0
   itemEffects:
-  - {fileID: 11400000, guid: cfb7e9762258b7f45a0bcb8c8c36c248, type: 2}
+  - {fileID: 11400000, guid: 70caf7fa5bf22ed4f9799c12f43eb0f0, type: 2}
   strength: 0
   agility: 0
   intelligence: 0
@@ -27,10 +27,10 @@ MonoBehaviour:
   armor: 0
   evasion: 0
   magicResist: 0
-  damage: 10
+  damage: 0
   critChance: 0
   critDamage: 0
-  fireDamage: 0
-  iceDamage: 0
-  lightningDamage: 5
+  fireDamage: 15
+  iceDamage: 15
+  lightningDamage: 0
   craftingMats: []

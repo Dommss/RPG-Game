@@ -3811,6 +3811,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6e2de1b57cdce264f84ee8431231e69f, type: 2}
   - {fileID: 11400000, guid: a8014a86368461a4db0ad568d9d6f703, type: 2}
   - {fileID: 11400000, guid: 9a95bf0587ed2934f984a062ed7ddaca, type: 2}
+  - {fileID: 11400000, guid: 21879b60110defe48820592c37894f56, type: 2}
   inventory: []
   stash: []
   equipment: []
@@ -8389,6 +8390,7 @@ GameObject:
   - component: {fileID: 1260050673}
   - component: {fileID: 1260050672}
   - component: {fileID: 1260050671}
+  - component: {fileID: 1260050677}
   m_Layer: 7
   m_Name: Enemy_Skeleton (1)
   m_TagString: Untagged
@@ -8597,6 +8599,24 @@ Transform:
   - {fileID: 1570302571}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1260050677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260050670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a2c25082edfc354ca75bdd9338aa5fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amountOfItems: 2
+  possibleDrop:
+  - {fileID: 11400000, guid: 21879b60110defe48820592c37894f56, type: 2}
+  - {fileID: 11400000, guid: 9a95bf0587ed2934f984a062ed7ddaca, type: 2}
+  - {fileID: 11400000, guid: 7a129765d4bfb064587c71d8f10ddc4f, type: 2}
+  dropPrefab: {fileID: 0}
 --- !u!1 &1277783159
 GameObject:
   m_ObjectHideFlags: 0
