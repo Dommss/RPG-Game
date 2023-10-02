@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e273a6dab378af44f8022dc885e4e388, type: 3}
+  m_Name: thornmail
+  m_EditorClassIdentifier: 
+  itemType: 1
+  itemName: Thornmail
+  icon: {fileID: -1547736094, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
+  dropChance: 1.1
+  equipmentType: 1
+  itemCooldown: 5
+  itemEffects:
+  - {fileID: 11400000, guid: 66ac1e65b7ea56549aa215f1591cc61f, type: 2}
+  strength: 5
+  agility: 0
+  intelligence: 0
+  vitality: 5
+  maxHealth: 100
+  armor: 15
+  evasion: 0
+  magicResist: 15
+  damage: 0
+  critChance: 0
+  critDamage: 0
+  fireDamage: 0
+  iceDamage: 0
+  lightningDamage: 0
+  craftingMats: []
