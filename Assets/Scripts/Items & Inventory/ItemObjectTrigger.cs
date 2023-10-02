@@ -7,6 +7,8 @@ public class ItemObjectTrigger : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.GetComponent<Player>() != null) {
+            if (collision.GetComponent<CharacterStats>().isDead) return;
+
             myItemObject.PickupItem();
             Debug.Log("Picked up an item");
         }

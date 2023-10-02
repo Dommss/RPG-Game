@@ -441,7 +441,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7a129765d4bfb064587c71d8f10ddc4f, type: 2}
   - {fileID: 11400000, guid: 6e2de1b57cdce264f84ee8431231e69f, type: 2}
   dropPrefab: {fileID: 129756046727180350, guid: ac1af848ce9954f43aafaaa89f89d2c9, type: 3}
-  item: {fileID: 11400000, guid: 80b160ec10e78f6448508aa4abd762f0, type: 2}
 --- !u!1 &65069136
 GameObject:
   m_ObjectHideFlags: 0
@@ -3803,6 +3802,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31e3c9c2a775ea145add3a0cb998e3df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingEquipment:
+  - {fileID: 11400000, guid: b287a1647fd2f984d94ded9a405d3705, type: 2}
+  - {fileID: 11400000, guid: b287a1647fd2f984d94ded9a405d3705, type: 2}
+  - {fileID: 11400000, guid: a8014a86368461a4db0ad568d9d6f703, type: 2}
+  - {fileID: 11400000, guid: 80b160ec10e78f6448508aa4abd762f0, type: 2}
+  - {fileID: 11400000, guid: 7a129765d4bfb064587c71d8f10ddc4f, type: 2}
+  - {fileID: 11400000, guid: 6e2de1b57cdce264f84ee8431231e69f, type: 2}
+  - {fileID: 11400000, guid: a8014a86368461a4db0ad568d9d6f703, type: 2}
   inventory: []
   stash: []
   equipment: []
@@ -11810,6 +11817,7 @@ GameObject:
   - component: {fileID: 1831102170}
   - component: {fileID: 1831102173}
   - component: {fileID: 1831102174}
+  - component: {fileID: 1831102175}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -12014,6 +12022,23 @@ MonoBehaviour:
   isShocked: 0
   thunderStrikePrefab: {fileID: 2817990493223766233, guid: 5f37f2047d4901f40a5f9899574d97f4, type: 3}
   currentHealth: 0
+--- !u!114 &1831102175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831102168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd93f0837ca94054481367476e76196d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amountOfItems: 0
+  possibleDrop: []
+  dropPrefab: {fileID: 129756046727180350, guid: ac1af848ce9954f43aafaaa89f89d2c9, type: 3}
+  chanceToLooseItems: 20
+  chanceToLooseMats: 75
 --- !u!1 &1865622979
 GameObject:
   m_ObjectHideFlags: 0
@@ -12424,7 +12449,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7a129765d4bfb064587c71d8f10ddc4f, type: 2}
   - {fileID: 11400000, guid: 6e2de1b57cdce264f84ee8431231e69f, type: 2}
   dropPrefab: {fileID: 129756046727180350, guid: ac1af848ce9954f43aafaaa89f89d2c9, type: 3}
-  item: {fileID: 11400000, guid: 80b160ec10e78f6448508aa4abd762f0, type: 2}
 --- !u!70 &1947617117
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

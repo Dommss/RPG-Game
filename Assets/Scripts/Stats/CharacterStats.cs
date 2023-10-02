@@ -40,7 +40,7 @@ public class CharacterStats : MonoBehaviour {
     [SerializeField] private GameObject thunderStrikePrefab;
 
     public int currentHealth;
-    private bool isDead = false;
+    public bool isDead { get; private set; }
 
     public System.Action onHealthChange;
 
