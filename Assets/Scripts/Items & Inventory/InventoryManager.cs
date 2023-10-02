@@ -28,6 +28,9 @@ public class InventoryManager : MonoBehaviour {
     private float lastTimeUsedFlask;
     private float lastTimeUsedArmor;
 
+    private float flaskCooldown;
+    private float armorCooldown;
+
     private void Awake() {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
@@ -215,9 +218,10 @@ public class InventoryManager : MonoBehaviour {
 
         if (currentFlask == null) return;
 
-        bool canUseFlask = Time.time > lastTimeUsedFlask + currentFlask.itemCooldown;
+        bool canUseFlask = Time.time > lastTimeUsedFlask + flaskCooldown;
 
         if (canUseFlask) {
+            flaskCooldown = currentFlask.itemCooldown;
             currentFlask.ExecuteItemEffect(null);
             lastTimeUsedFlask = Time.time;
         } else {
@@ -228,7 +232,8 @@ public class InventoryManager : MonoBehaviour {
     public bool CanUseArmor() {
         ItemDataEquipment currentArmor = GetEquipment(EquipmentType.Armor);
 
-        if (Time.time > lastTimeUsedArmor + currentArmor.itemCooldown) {
+        if (Time.time > lastTimeUsedArmor + armorCooldown) {
+            armorCooldown = currentArmor.itemCooldown;
             lastTimeUsedArmor = Time.time;
             return true;
         }
