@@ -39,9 +39,9 @@ public class ItemDataEquipment : ItemData {
     [Header("Craft Requirements")]
     public List<InventoryItem> craftingMats;
 
-    public void ExecuteItemEffect() {
+    public void ExecuteItemEffect(Transform _enemyPos) {
         foreach (var item in itemEffects) {
-            item.ExecuteEffect();
+            item.ExecuteEffect(_enemyPos);
         }
     }
 

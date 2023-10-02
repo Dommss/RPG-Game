@@ -34,6 +34,8 @@ public class ItemSlotUI : MonoBehaviour, IPointerDownHandler {
     }
 
     public virtual void OnPointerDown(PointerEventData eventData) {
+        if (item.data == null) return;
+
         if (Input.GetKey(KeyCode.LeftControl)) {
             InventoryManager.Instance.RemoveItem(item.data);
         }

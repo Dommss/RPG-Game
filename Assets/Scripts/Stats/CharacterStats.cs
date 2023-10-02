@@ -215,7 +215,7 @@ public class CharacterStats : MonoBehaviour {
 
         if (closestEnemy != null) {
             GameObject newThunderStrike = Instantiate(thunderStrikePrefab, transform.position, Quaternion.identity);
-            newThunderStrike.GetComponent<ThunderStrikeController>().Setup(shockDamage, closestEnemy.GetComponent<CharacterStats>());
+            newThunderStrike.GetComponent<ShockStrikeController>().Setup(shockDamage, closestEnemy.GetComponent<CharacterStats>());
         }
     }
 
