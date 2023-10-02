@@ -1,5 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class SwordSkillController : MonoBehaviour {
@@ -186,6 +186,12 @@ public class SwordSkillController : MonoBehaviour {
     private void SwordSkillDamage(Enemy enemy) {
         player.stats.DoDamage(enemy.GetComponent<CharacterStats>());
         enemy.StartCoroutine(enemy.FreezeTimeFor(freezeTimeDuration));
+
+        ItemDataEquipment equippedAmulet = InventoryManager.Instance.GetEquipment(EquipmentType.Amulet);
+
+        if (equippedAmulet != null) {
+            equippedAmulet.ExecuteItemEffect(enemy.transform);
+        }
     }
 
     private void SetupTargetForBounce(Collider2D collision) {

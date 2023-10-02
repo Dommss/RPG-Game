@@ -65,6 +65,11 @@ public class CrystalSkillController : MonoBehaviour {
         foreach (var hit in colliders) {
             if (hit.GetComponent<Enemy>() != null) {
                 player.stats.DoMagicalDamage(hit.GetComponent<CharacterStats>());
+                ItemDataEquipment equippedAmulet = InventoryManager.Instance.GetEquipment(EquipmentType.Amulet);
+
+                if (equippedAmulet != null) {
+                    equippedAmulet.ExecuteItemEffect(hit.transform);
+                }
             }
         }
     }
