@@ -3813,6 +3813,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9a95bf0587ed2934f984a062ed7ddaca, type: 2}
   - {fileID: 11400000, guid: 21879b60110defe48820592c37894f56, type: 2}
   - {fileID: 11400000, guid: c0bfabb6535abef439cfd8c29e0b749e, type: 2}
+  - {fileID: 11400000, guid: 3970c5011854d7e41a78bbf3e378cf2e, type: 2}
+  - {fileID: 11400000, guid: 0921179c8d3f6754ca5b2768d084ee1a, type: 2}
   inventory: []
   stash: []
   equipment: []
@@ -8617,7 +8619,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 21879b60110defe48820592c37894f56, type: 2}
   - {fileID: 11400000, guid: 9a95bf0587ed2934f984a062ed7ddaca, type: 2}
   - {fileID: 11400000, guid: 7a129765d4bfb064587c71d8f10ddc4f, type: 2}
-  dropPrefab: {fileID: 0}
+  dropPrefab: {fileID: 129756046727180350, guid: ac1af848ce9954f43aafaaa89f89d2c9, type: 3}
 --- !u!1 &1277783159
 GameObject:
   m_ObjectHideFlags: 0

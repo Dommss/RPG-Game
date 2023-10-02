@@ -102,7 +102,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 8840583584179143478}
   itemData: {fileID: 0}
-  velocity: {x: 0, y: 0}
 --- !u!61 &3637455454722698646
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -174,7 +173,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &5370658979020872760
 GameObject:
   m_ObjectHideFlags: 0
